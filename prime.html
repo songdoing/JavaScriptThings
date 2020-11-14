@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get Prime</title>
+</head>
+<body>
+   <h1>prime numbers</h1>
+   <div id="result"></div>
+   <script>
+       let numbers ={};
+       numbers.all = [];
+       numbers.prime = [];
+       
+       numbers.isPrime = function(num) {
+           for(var i=2; i<num; i++) {
+               if(num % i == 0) {
+                   return false;
+               }
+           }
+           return true;
+       };
+       
+       numbers.addAllNumber = function(max_num) {
+           for(var i=2; i < max_num; i++) {
+               this.all.push(i);
+           }
+           console.log(this.all);
+       };
+       
+       numbers.calcPrimes = function(){
+           for(var i =0; i < this.all.length; i++) {
+               var n = this.all[i];
+               if(this.isPrime(n)) {
+                   this.prime.push(n);
+               }
+           }
+           console.log(this.prime);
+       };
+       
+       numbers.getAllPrimeNumbers = function() {
+           var val = "";
+           val += "<h2>Prime number :" + this.prime.length + "</h2>";
+           for (var i =0; i <this.prime.length; i++) {
+               val += (i+1) + "th prime: " + this.prime[i] + "<br>";
+           }
+           return val;
+       };
+       
+       numbers.addAllNumber(100);
+       numbers.calcPrimes();
+       document.getElementById('result').innerHTML = numbers.getAllPrimeNumbers();
+    </script>
+</body>
+</html>

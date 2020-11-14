@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gugudan</title>
+</head>
+<body>
+    
+    <div id="result"></div>
+    
+    <script>
+    var results = [];
+    var val="";
+    
+    for(var i = 2; i <= 9; i++) {
+        for(var j = 1; j <= 9; j++) {
+            results[j] = i * j;
+            
+        }
+        console.log(results);
+        val += "<h2>" + i + " 단 </h2>"; 
+        for(var j = 1; j <= 9; j++) {
+            
+            val += i + " X " + j + " = " + results[j] + "<br/>";
+            
+        }
+       
+        
+    };
+    console.log(results);    
+       
+    document.getElementById('result').innerHTML = val;
+    </script>
+</body>
+</html>
