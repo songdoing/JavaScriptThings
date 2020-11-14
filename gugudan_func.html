@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gugudan function</title>
+</head>
+<body>
+    
+    <script>
+        function gugudan(x) {
+            var ret = [];
+            for(var i = 1; i <=9; i++) {
+                ret[i] = x * i;
+            }
+            return ret;
+            
+        };
+        
+        function printResult(x, ret) {
+            var print = "";
+            document.write("<h2>" + x + "단</h2>");
+            for ( var i =1; i <= 9; i++) {
+                document.write(x + " X " + i + " = " + ret[i] + "<br/>");                
+            }
+       
+        };
+
+        function main() {
+            console.log("main function");
+            for ( var n = 2; n <= 9; n++) {
+                var result = gugudan(n);
+                console.log(n, result);
+                printResult(n, result);
+            }
+        };     
+        main();
+    </script>
+</body>
+</html>
