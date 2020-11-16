@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gugudan-object</title>
+</head>
+<body>
+    <script>
+        let gugudan = {};
+        gugudan.result = [];
+        gugudan.current = 0;
+        gugudan.calculate = function(n) {
+            this.current = n;
+            for(var i = 0; i < 9; i++) {
+                this.result[i] = n * (i +1);
+            }
+        }
+
+        gugudan.print = function(n, ret) {
+            document.write("<h2>" + this.current + "단</h2>");
+            for(var i =0; i < 9; i++ ) {
+                document.write(this.current + " X " + (i+1) + " = " + this.result[i] + "<br/>" );
+            }
+        }
+
+        function main() {
+            for(var i=2; i<=9; i++) {
+                gugudan.calculate(i);
+                gugudan.print();
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
