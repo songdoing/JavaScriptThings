@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div>
+        First : <input type="text" id="num1"><br/>
+        Second : <input type="text" id="num2"><br/>
+
+        <button onclick="add()">addition</button>
+        <button onclick="subtract()">subtraction</button>
+        <button onclick="multiply()">multiplication</button>
+        <button onclick="divide()">division</button>   
+    </div>    
+    
+    <div id="output"></div>
+    <script>        
+        function add() {
+            var v1 = Number(document.getElementById("num1").value);        
+            var v2 = Number(document.getElementById("num2").value);
+            document.getElementById("output").innerHTML = "Your answer is "+ (v1 + v2);
+        };
+
+        function subtract() {
+            var v1 = Number(document.getElementById("num1").value);        
+            var v2 = Number(document.getElementById("num2").value);
+            var y = num1 - num2;
+            document.getElementById("output").innerHTML = "Your answer is "+ (v1 - v2);
+        };
+        
+        function multiply() {
+            var v1 = Number(document.getElementById("num1").value);        
+            var v2 = Number(document.getElementById("num2").value);
+            document.getElementById("output").innerHTML = "Your answer is "+ (v1 * v2);
+        };
+
+        function divide() {
+            var v1 = Number(document.getElementById("num1").value);        
+            var v2 = Number(document.getElementById("num2").value);
+            document.getElementById("output").innerHTML = "Your answer is "+ (v1 / v2);
+        };
+    </script>
+</body>
+</html>
