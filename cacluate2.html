@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate loop</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div id="output"></div>
+
+    <script>
+        function main() {
+            var n1 = Number(prompt("Put the first number."));
+            var out = document.getElementById('output');
+
+            var op, n2;
+            var result = n1;
+            var n = 2;
+
+            //unlimited loop
+            while(true) {
+                op = prompt("Put the operator. ex\) +, -, *, /");
+
+                if(op === 'q') {
+                    break;
+                }
+                n2 = Number(prompt("Put the " + n + "th number or q for quit."));
+
+                if (op === '+') {
+                    result += n2;
+                } else if (op === '-') {
+                    result -= n2;
+                } else if (op === '*') {
+                    result *= n2;
+                } else if (op === '/') {
+                    result /= n2;
+                } else {
+                    result = "error";
+                    break;
+                }
+                n++;
+            }
+            out.innerHTML = "Your final result is " + result +".";
+        }
+        main();
+    </script>
+</body>
+</html>
