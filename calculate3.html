@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate function</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div id="output"></div>
+    <!-- function getFirstValue()
+        function getSecondValue() 
+        function getOperator()
+        function calculate()
+        function print()
+        function main() -->
+    <script>
+        function getFirstValue() {
+            var num1=Number(prompt("Put the first number."));
+            return num1;
+        }
+
+        function getSecondValue(){
+            var n =2;
+            var num2=Number(prompt("Enter the " + n + "th number or q for quit."));
+            return num2;
+        }
+
+        function getOperator() {
+            while(true) {
+                var op = prompt("Enter the operator. ex\) +, -, *, /");
+
+                if(op === '+' || op === '-' || op === '*' || op === '/' || op === 'q') {
+                    break;
+                }else {
+                    alert("Please enter the operator again.")
+                }
+            }            
+            return op;
+        }
+
+        function calculate(first, second, op) {
+            var result = 0;
+            if(op === 'q') {
+                result = 'quit';
+            } else if(op === '+') {
+                result = first + second;
+            } else if(op === '-') {
+                result = first - second;
+            } else if(op === '*') {
+                result = first * second;
+            } else if(op === '/') {
+                result = first / second;
+            }
+            return result;
+        }
+
+        function print(result) {
+            var out = "Your final result is " + result +".";
+            return out;
+        }
+
+        function main() {
+            var first = getFirstValue();
+
+            while(true) {
+                var op = getOperator();
+                
+                if(op === 'q') {
+                    break;
+                } 
+                var second = getSecondValue();
+                var result = calculate(first, second, op);
+            }
+            var out = document.getElementById('output');
+            out.innerHTML =print(result);      
+
+        }
+        main();
+    </script>
+</body>
+</html>
