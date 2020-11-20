@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div>
+        <input type="text" id="input">
+        <button onclick = "calc()">Enter</button>
+    </div>
+    <div id="output"></div>
+
+    <script>
+        let input = {};
+
+        input.init = function(str) {
+            this.list = str.split(" ");
+        };
+
+        input.empty = function() {
+            return this.list.length == 0;
+        };
+
+        input.getValue = function() {
+            var val = this.list.shift();
+            var num=Number(val);
+            return num;
+        };
+        
+        input.getOperator = function(){
+            var op = this.list.shift();
+            if(op === '+' || op === '-' || op === '*' || op === '/') {
+                return op;           
+            }else {
+                return "$";
+            }            
+        };
+
+        let output = {};
+        output.out = document.getElementById('output');
+        output.print = function(result){
+            this.out.innerHTML = "Your final result is " + result +".";
+        };
+
+        let calculator = {};
+        calculator.calculate = function(first, second, op){
+            var result = 0;
+            switch(op) {
+                case "+" :
+                result = first + second;
+                break;
+                case "-" :
+                result = first - second;
+                break;
+                case "*" :
+                result = first * second;
+                break;
+                case "/" :
+                result = first / second;
+                break;
+                default : 
+                return NaN;
+            }
+            return result;
+
+        };
+        
+        function calc() {
+            var str = document.getElementById("input").value;
+            console.log(str);
+            input.init(str);
+            console.log(input.list);
+            var result = input.getValue();
+            
+            while(!input.empty()) {
+                var op = input.getOperator();
+               
+                var second = input.getValue();
+               
+                var result = calculator.calculate(result, second, op);                
+            }
+            output.print(result);
+        }
+    </script>
+</body>
+</html>
