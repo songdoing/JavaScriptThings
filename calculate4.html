@@ -3,32 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculate function</title>
+    <title>Calculate-object</title>
 </head>
 <body>
     <h1>Calculator</h1>
     <div id="output"></div>
-    <!-- function getFirstValue()
-        function getSecondValue() 
-        function getOperator()
-        function calculate()
-        function print()
-        function main() -->
     <script>
-        function getFirstValue() {
+        let input = {};
+        input.getFirstValue = function() {
             var num1=Number(prompt("Put the first number."));
             return num1;
         }
-
-        var n =2;
-        function getSecondValue(){
-            
+        input.getSecondValue = function(){
+            var n =2;
             var num2=Number(prompt("Enter the " + n + "th number or q for quit."));
-            n++;
             return num2;
         }
-
-        function getOperator() {
+        input.getOperator = function(){
             while(true) {
                 var op = prompt("Enter the operator. ex\) +, -, *, /");
 
@@ -41,7 +32,14 @@
             return op;
         }
 
-        function calculate(first, second, op) {
+        let output = {};
+        output.print = function(result){
+            var out = "Your final result is " + result +".";
+            return out;
+        }
+
+        let calculator = {};
+        calculator.calculate = function(first, second, op){
             var result = 0;
             if(op === 'q') {
                 result = 'quit';
@@ -57,26 +55,20 @@
             return result;
         }
 
-        function print(result) {
-            var out = "Your final result is " + result +".";
-            return out;
-        }
-
         function main() {
-            var first = getFirstValue();
+            var first = input.getFirstValue();
 
             while(true) {
-                var op = getOperator();
+                var op = input.getOperator();
                 
                 if(op === 'q') {
                     break;
                 } 
-                var second = getSecondValue();
-                var result = calculate(first, second, op);
+                var second = input.getSecondValue();
+                var result = calculator.calculate(first, second, op);
             }
             var out = document.getElementById('output');
-            out.innerHTML =print(result);      
-
+            out.innerHTML =output.print(result);  
         }
         main();
     </script>
