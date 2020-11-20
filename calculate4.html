@@ -9,16 +9,16 @@
     <h1>Calculator</h1>
     <div id="output"></div>
     <script>
-        let input = {};
+        let input = {count : 2};
         input.getFirstValue = function() {
             var num1=Number(prompt("Put the first number."));
             return num1;
-        }
-        input.getSecondValue = function(){
-            var n =2;
-            var num2=Number(prompt("Enter the " + n + "th number or q for quit."));
+        };
+        input.getSecondValue = function(){            
+            var num2=Number(prompt("Enter the " + this.count + "th number or q for quit."));
+            this.count++;
             return num2;
-        }
+        };
         input.getOperator = function(){
             while(true) {
                 var op = prompt("Enter the operator. ex\) +, -, *, /");
@@ -30,13 +30,13 @@
                 }
             }            
             return op;
-        }
+        };
 
         let output = {};
+        output.out = document.getElementById('output');
         output.print = function(result){
-            var out = "Your final result is " + result +".";
-            return out;
-        }
+            this.out.innerHTML = "Your final result is " + result +".";
+        };
 
         let calculator = {};
         calculator.calculate = function(first, second, op){
@@ -53,7 +53,7 @@
                 result = first / second;
             }
             return result;
-        }
+        };
 
         function main() {
             var first = input.getFirstValue();
@@ -67,9 +67,9 @@
                 var second = input.getSecondValue();
                 var result = calculator.calculate(first, second, op);
             }
-            var out = document.getElementById('output');
-            out.innerHTML =output.print(result);  
-        }
+            
+            output.print(result);  
+        };
         main();
     </script>
 </body>
