@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+        #output { 
+            background-color: aqua;
+            width : 460px;
+            height: 50px;
+            margin :10px;
+            padding : 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 40px;
+        }
+
+        button {
+            font-size: 35px;
+            background-color: rgb(155, 179, 204);
+            width : 100px;
+            height: 100px;
+            margin :10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div id="layout">
+        <div id="output">0</div>
+        <div id="btn1">
+            <button id='7' onclick = 'clickNumbers()'>7</button>
+            <button id='8' onclick = 'clickNumbers()'>8</button>
+            <button id='9' onclick = 'clickNumbers()'>9</button>
+            <button id='div' onclick = 'clickOperator()'>÷</button>
+        </div>
+
+        <div id="btn2">
+            <button id='4' onclick = 'clickNumbers()'>4</button>
+            <button id='5' onclick = 'clickNumbers()'>5</button>
+            <button id='6' onclick = 'clickNumbers()'>6</button>
+            <button id='mul' onclick = 'clickOperator()'>×</button>
+        </div>
+
+        <div id="btn3">
+            <button id='1' onclick = 'clickNumbers()'>1</button>
+            <button id='2' onclick = 'clickNumbers()'>2</button>
+            <button id='3' onclick = 'clickNumbers()'>3</button>
+            <button id='sub' onclick = 'clickOperator()'>−</button>
+        </div>
+
+        <div id="btn4">
+            <button id='del' onclick = 'clickNumbers()'>C</button>
+            <button id='0' onclick = 'clickNumbers()'>0</button>
+            <button id='eq' onclick = 'clickNumbers()'>=</button>
+            <button id='plus' onclick = 'clickOperator()'>+</button>
+        </div>
+    </div>
+    <script src = 'calc.js'></script>
+</body>
+</html>
