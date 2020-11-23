@@ -8,12 +8,13 @@
     <style>
         #output { 
             background-color: aqua;
-            width : 460px;
+            width : 420px;
             height: 50px;
             margin :10px;
             padding : 10px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 40px;
+            border-radius: 15px;
         }
 
         button {
@@ -21,7 +22,8 @@
             background-color: rgb(155, 179, 204);
             width : 100px;
             height: 100px;
-            margin :10px;
+            margin :5px;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -30,31 +32,31 @@
     <div id="layout">
         <div id="output">0</div>
         <div id="btn1">
-            <button id='7' onclick = 'clickNumbers()'>7</button>
-            <button id='8' onclick = 'clickNumbers()'>8</button>
-            <button id='9' onclick = 'clickNumbers()'>9</button>
-            <button id='div' onclick = 'clickOperator()'>÷</button>
+            <button id='7' onclick = 'clickButtons(event)'>7</button>
+            <button id='8' onclick = 'clickButtons(event)'>8</button>
+            <button id='9' onclick = 'clickButtons(event)'>9</button>
+            <button id='div' onclick = 'clickButtons(event)'>÷</button>
         </div>
 
         <div id="btn2">
-            <button id='4' onclick = 'clickNumbers()'>4</button>
-            <button id='5' onclick = 'clickNumbers()'>5</button>
-            <button id='6' onclick = 'clickNumbers()'>6</button>
-            <button id='mul' onclick = 'clickOperator()'>×</button>
+            <button id='4' onclick = 'clickButtons(event)'>4</button>
+            <button id='5' onclick = 'clickButtons(event)'>5</button>
+            <button id='6' onclick = 'clickButtons(event)'>6</button>
+            <button id='mul' onclick = 'clickButtons(event)'>×</button>
         </div>
 
         <div id="btn3">
-            <button id='1' onclick = 'clickNumbers()'>1</button>
-            <button id='2' onclick = 'clickNumbers()'>2</button>
-            <button id='3' onclick = 'clickNumbers()'>3</button>
-            <button id='sub' onclick = 'clickOperator()'>−</button>
+            <button id='1' onclick = 'clickButtons(event)'>1</button>
+            <button id='2' onclick = 'clickButtons(event)'>2</button>
+            <button id='3' onclick = 'clickButtons(event)'>3</button>
+            <button id='sub' onclick = 'clickButtons(event)'>−</button>
         </div>
 
         <div id="btn4">
-            <button id='del' onclick = 'clickNumbers()'>C</button>
-            <button id='0' onclick = 'clickNumbers()'>0</button>
-            <button id='eq' onclick = 'clickNumbers()'>=</button>
-            <button id='plus' onclick = 'clickOperator()'>+</button>
+            <button id='del' onclick = 'clickButtons(event)'>C</button>
+            <button id='0' onclick = 'clickButtons(event)'>0</button>
+            <button id='eq' onclick = 'showResult(event)'>=</button>
+            <button id='plus' onclick = 'clickButtons(event)'>+</button>
         </div>
     </div>
     <script src = 'calc.js'></script>
