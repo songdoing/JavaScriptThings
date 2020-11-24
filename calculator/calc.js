@@ -25,11 +25,13 @@ input.prepareCalculate = function() {
 
 input.getOperator = function() {
     var op = this.inputArr.shift();
-    if(op === '+' || op === '-' || op === '×' || op === '÷') {
+    
+    if(op === '+' || op === '\u2212' || op === '×' || op === '÷') {
          return op;           
     }else {
         return "$";
-    }   
+    }  
+    
 };
 
 var output = {};
@@ -48,7 +50,7 @@ var calculator = {};
                 case "+" :
                 result = first + second;
                 break;
-                case "-" :
+                case '\u2212' :
                 result = first - second;
                 break;
                 case "×" :
@@ -66,20 +68,17 @@ var calculator = {};
         
 var clickButtons = function(event) {
     var str = event.target.innerHTML;
-
-    switch (str) {
-        case 'C' :
-            input.inputArr.pop();
-        break;
-        case '+' :       
-        case '-' :         
-        case '×' :            
-        case '÷' :
-            input.inputArr.push(' ' + str + ' ');
-        break;
-        default :
+    console.log(str); 
+    
+    if (str === "C") {
+        input.inputArr.pop();
+    } else if (str === "+" || str === '\u2212' || str === "×" || str === "÷") {
+        input.inputArr.push(" " + str + " ");
+        console.log(input.inputArr);
+    } else {
         input.inputArr.push(str);
     }
+    
     if (input.empty()) {
         output.text.innerHTML = "0"
     } else {
@@ -87,15 +86,17 @@ var clickButtons = function(event) {
         
     }    
     console.log(str);   
+    console.log(input.inputArr);
 };
 
 var showResult = function(event) {
     input.prepareCalculate();
-
+    console.log(input.inputArr);
     var result = input.getValue();
             
     while(!input.empty()) {
-        var op = input.getOperator();        
+        var op = input.getOperator();     
+        console.log(op);   
         var second = input.getValue();               
         var result = calculator.calculate(result, second, op);                
     }
