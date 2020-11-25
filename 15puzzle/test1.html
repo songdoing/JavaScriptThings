@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>puzzle 1</title>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        #str {
+            font-size: 35px;
+            margin: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            border-radius: 4px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Puzzle 1</h1>
+    <div id="str">HELLO</div><br />
+    <div id="mixStr"></div>
+    <button id="flip" onclick="flip(event)" style="width: 218px;">FlipOver</button><br />
+    <button id="push" onclick="pushR(event)">PushRight</button>
+    <button id="push" onclick="pushL(event)">PushLeft</button>
+    <br />
+    <div id="result"></div>
+
+    <script>
+        let strEl = document.getElementById("str").innerHTML;
+        console.log(strEl);
+        let mixStrEl = document.getElementById('mixStr');
+        console.log(mixStrEl);
+        for (var i = 0; i < strEl.length; i++) {
+            let btn = document.createElement('button');
+            btn.innerHTML = strEl[i];
+            mixStrEl.appendChild(btn);
+        }
+
+        flip = (event) => {
+            console.log("flip");
+        };
+
+        pushR = (event) => {
+            console.log("pushRight");
+        };
+
+        pushL = (event) => {
+            console.log("pushLeft");
+        };
+    </script>
+</body>
+
+</html>
