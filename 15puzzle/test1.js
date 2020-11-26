@@ -59,3 +59,14 @@ pushL = (event) => {
 
     game.choiceText();
 };
+
+//shuffle 50%
+let toggle = Math.floor(Math.random() * 2);
+if(toggle) {
+    flip();
+}
+
+let n = Math.floor(Math.random() * game.btns.length);
+for(var i =0; i < n; i++) {
+    pushR();
+}
