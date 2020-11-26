@@ -2,7 +2,7 @@ let strEl = document.getElementById("str").innerHTML;
 let mixStrEl = document.getElementById('mixStr');
 let game = {};
 game.word = strEl.split('');
-console.log(game.word);
+console.log(game.word.length);
 game.btns = [];
 
 game.choiceText = function(){
@@ -20,7 +20,16 @@ for (var i = 0; i < strEl.length; i++) {
 }
 
 flip = (event) => {
+    let temp = [];
     console.log("flip");
+    for(var i = 0; i < game.word.length; i++) {
+        var s = game.word[i].slice(0,1);
+        console.log(s);
+        temp.unshift(s);
+    }
+    game.word = temp;
+    console.log(temp);
+    game.choiceText();
 };
 
 pushR = (event) => {
