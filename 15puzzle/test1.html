@@ -20,6 +20,11 @@
             border-radius: 4px;
             margin: 5px;
         }
+
+        #result {
+            font-size: 30px;
+            color: blue;
+        }
     </style>
 </head>
 
@@ -27,9 +32,9 @@
     <h1>Puzzle 1</h1>
     <div id="str"></div><br />
     <div id="mixStr"></div>
-    <button id="flip" onclick="flip(event)" style="width: 218px;">FlipOver</button><br />
-    <button id="push" onclick="pushL(event)">PushLeft</button>
-    <button id="push" onclick="pushR(event)">PushRight</button><br />
+    <button id="flip" onclick="flip()" style="width: 218px;">FlipOver</button><br />
+    <button id="push" onclick="pushL()">PushLeft</button>
+    <button id="push" onclick="pushR()">PushRight</button><br />
     <div id="result"></div>
 
     <script src="test1.js"></script>

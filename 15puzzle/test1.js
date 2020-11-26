@@ -1,9 +1,10 @@
 let strEl = document.getElementById("str");
 let mixStrEl = document.getElementById('mixStr');
+let result = document.getElementById('result');
 let game = {};
 
-game.words = ['apple', 'javascript', 'react', 'jobsearch', 'linkerdin', 'indeed', 'corona', 'blue', 'jenny', 'daniel', 'mason', 'korea'];
-game.word = [];
+game.words = ['javascript', 'react', 'puzzle', 'jobsearch', 'linkerdin', 'indeed', 'corona', 'blue', 'jenny', 'daniel', 'mason', 'korea'];
+game.word = []; //["c", "o", "r", "o", "n", "a"]
 game.btns = [];
 game.addButtons = function() {
     for (var i = 0; i < this.word.length; i++){
@@ -11,6 +12,7 @@ game.addButtons = function() {
         btn.innerHTML = this.word[i];
         mixStrEl.appendChild(btn);
         this.btns.push(btn);
+        console.log(this.btns);
     }
 };
 
@@ -23,10 +25,20 @@ game.randomWord = function(){
     let idx = Math.floor(Math.random() * this.words.length);
     let s =game.words[idx];
     strEl.innerHTML =s;
+    console.log(s);
     this.word = s.split('');
     console.log(this.word);
+    console.log(this.word.join(''));
     //this.choiceText();
 };
+game.updateDisplay = function() {
+    if(strEl.innerHTML == this.word.join('')) {
+        result.innerHTML = "BINGO! You got it!";
+    } else {
+        result.innerHTML = "Please make same."
+    }
+}
+
 game.randomWord();
 game.addButtons();
 game.choiceText();
@@ -42,6 +54,7 @@ flip = (event) => {
     game.word = temp;
     console.log(temp);
     game.choiceText();
+    game.updateDisplay();
 };
 
 pushR = (event) => {
@@ -50,6 +63,7 @@ pushR = (event) => {
     game.word.unshift(s);        
 
     game.choiceText();
+    game.updateDisplay();
 };
 
 pushL = (event) => {
@@ -58,9 +72,10 @@ pushL = (event) => {
     game.word.push(s);        
 
     game.choiceText();
+    game.updateDisplay();
 };
 
-//shuffle 50%
+/*shuffle 50% */
 let toggle = Math.floor(Math.random() * 2);
 if(toggle) {
     flip();
@@ -69,4 +84,5 @@ if(toggle) {
 let n = Math.floor(Math.random() * game.btns.length);
 for(var i =0; i < n; i++) {
     pushR();
+
 }
