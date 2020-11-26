@@ -15,6 +15,12 @@ game.addButtons = function() {
         console.log(this.btns);
     }
 };
+game.removeButtons = function() {
+    for(var i=0; i < this.btns.length; i++) {
+        mixStrEl.removeChild(this.btns[i]);
+    }
+    this.btns = [];
+};
 
 game.choiceText = function(){
     for(var i =0; i < this.word.length; i++) {
@@ -28,20 +34,25 @@ game.randomWord = function(){
     console.log(s);
     this.word = s.split('');
     console.log(this.word);
-    console.log(this.word.join(''));
-    //this.choiceText();
 };
 game.updateDisplay = function() {
     if(strEl.innerHTML == this.word.join('')) {
-        result.innerHTML = "BINGO! You got it!";
+        result.innerHTML = "BINGO! You got it!";      
+        setTimeout(function(){ 
+            game.removeButtons();
+            game.init();
+        }, 2000); 
+        
     } else {
         result.innerHTML = "Please make same."
     }
 }
-
-game.randomWord();
-game.addButtons();
-game.choiceText();
+game.init = function() {
+    this.randomWord();
+    this.addButtons();
+    this.choiceText();
+    this.mix();
+}
 
 flip = (event) => {
     let temp = [];
@@ -57,11 +68,11 @@ flip = (event) => {
     game.updateDisplay();
 };
 
+
 pushR = (event) => {
     console.log("pushRight");
     let s = game.word.pop();
-    game.word.unshift(s);        
-
+    game.word.unshift(s); 
     game.choiceText();
     game.updateDisplay();
 };
@@ -75,14 +86,19 @@ pushL = (event) => {
     game.updateDisplay();
 };
 
-/*shuffle 50% */
-let toggle = Math.floor(Math.random() * 2);
-if(toggle) {
-    flip();
-}
+//shuffle 50% 
+game.mix = function() {
+    let toggle = Math.floor(Math.random() * 2);
+    if(toggle) {
+        flip();
+    }
 
-let n = Math.floor(Math.random() * game.btns.length);
-for(var i =0; i < n; i++) {
-    pushR();
+    let n = Math.floor(Math.random() * game.btns.length);
+    for(var i =0; i < n; i++) {
+        pushR();
+    }
+};
 
-}
+
+game.init();
+flip();
