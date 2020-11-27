@@ -6,12 +6,9 @@ let game = {
     'word' : [], //["c", "o", "r", "o", "n", "a"]
     'btns' : [],
     'maxPlay' : 3,
-    'current' : 0
+    'current' : 0    
 };
-
 game.words = ['javascript', 'react', 'puzzle', 'jobsearch', 'linkerdin', 'indeed', 'corona', 'blue', 'jenny', 'daniel', 'mason', 'korea'];
-//game.word = []; 
-//game.btns = [];
 game.addButtons = function() {
     for (var i = 0; i < this.word.length; i++){
         let btn = document.createElement('button');
@@ -27,7 +24,6 @@ game.removeButtons = function() {
     }
     this.btns = [];
 };
-
 game.choiceText = function(){
     for(var i =0; i < this.word.length; i++) {
         this.btns[i].innerHTML = this.word[i];
@@ -57,13 +53,14 @@ game.updateDisplay = function() {
         
     } else if (this.current > this.maxPlay) {
         result.innerHTML = "Thank you for playing. Great job!";
+        
     } else {
         result.innerHTML = "Please make same.";
     }
 };
 //shuffle 50% 
 game.mix = function() {
-    let toggle = Math.floor(Math.random() * 2);
+    let toggle = Math.floor(Math.random() * 2);  //0 or 1
     if(toggle) {
         flip();
     }
@@ -73,17 +70,14 @@ game.mix = function() {
         pushR();
     }
 };
-
 game.flip = function() {
     let temp = [];
     console.log("flip");
     for(var i = 0; i < game.word.length; i++) {
         var s = game.word[i].slice(0,1);
-        console.log(s);
         temp.unshift(s);
     }
     game.word = temp;
-    console.log(temp);
     game.choiceText();
     game.updateDisplay();
 };
@@ -98,8 +92,7 @@ game.pushR = function() {
 game.pushL = function() {
     console.log("pushLeft");
     let s = game.word.shift();
-    game.word.push(s);        
-
+    game.word.push(s);   
     game.choiceText();
     game.updateDisplay();
 };
@@ -109,19 +102,13 @@ game.init = function() {
     this.choiceText();
     this.mix();
 }
-
 flip = () => {
     game.flip();
 };
-
-
 pushR = () => {
     game.pushR();
 };
-
 pushL = () => {
     game.pushL();
 };
-
 game.init();
-game.flip();
