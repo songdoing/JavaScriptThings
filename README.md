@@ -12,3 +12,6 @@ This is for excercising Vanilla Javascript.
 <img src="https://user-images.githubusercontent.com/48890162/100532923-ae29da80-31cc-11eb-99f2-7f6944a7c1e7.png">
 <img src="https://user-images.githubusercontent.com/48890162/100532925-af5b0780-31cc-11eb-9a32-2d6482e2493e.png">
 <img src="https://user-images.githubusercontent.com/48890162/100532927-b124cb00-31cc-11eb-913c-004f1ff31b92.png">
+<img src="https://user-images.githubusercontent.com/48890162/100822226-e37a3680-341f-11eb-9e38-b3af5c9f2355.png">
+<img src="https://user-images.githubusercontent.com/48890162/100822229-e4ab6380-341f-11eb-8d3d-d1ffdf1cad24.png">
+<img src="https://user-images.githubusercontent.com/48890162/100822232-e5dc9080-341f-11eb-8460-9feb899004fe.png">
